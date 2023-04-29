@@ -26,7 +26,7 @@ export function AddForm({ addNewJob }) {
   return (
     <KeyboardAvoidingView
       keyboardVerticalOffset={100}
-      behavior={Platform.OS === "ios" ? "padding" : null}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={{ flex: 1 }}
       enabled
     >
@@ -36,6 +36,8 @@ export function AddForm({ addNewJob }) {
             value={name}
             placeholder="enter job..."
             onChangeText={onUpdateInput}
+            onSubmitEditing={() => onAddTodo()}
+            blurOnSubmit={false}
           />
         </View>
         <Button onPress={onAddTodo} title="Add" />
